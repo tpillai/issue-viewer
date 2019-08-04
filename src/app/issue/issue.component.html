@@ -1,0 +1,58 @@
+
+<div class='card'>
+  <div class='card-header'>
+      <p class="text-primary">{{title}}</p>
+</div>
+
+<div class='card-body'>
+
+    <div class='row justify-content-center my-row align-items-center'>
+        <div class="col-md-2 justify-content-end">Upload the CSV file</div>
+
+        <div class='col-md-4 justify-content-start'>
+          <input type="file" #fileImportInput name="File Upload" id="txtFileUpload" (change)="fileChangeListener($event)" accept=".csv"/>
+        </div>
+
+     </div>
+
+
+  <div class='row justify-content-center my-row align-items-center'>
+  <div class='col-md-2 justify-content-end '>Filter by:</div>
+    <div class='col-md-4 justify-content-start'>
+      <input type='text'[(ngModel)]='listFilter' />
+    </div>
+  </div>
+
+</div>
+
+<div class='table-responsive'>
+  <table class='table'
+  *ngIf='filteredIssueRecords && filteredIssueRecords.length'>
+    <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Surname</th>
+      <th>IssueCount</th>
+      <th>DateOfBirth</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let csvData of filteredIssueRecords">
+      <td>
+        <span>{{csvData.firstName}}</span>
+      </td>
+      <td>
+        <span>{{csvData.surname}}</span>
+      </td>
+
+      <td>
+        <span>{{csvData.issueCount}}</span>
+      </td>
+      <td>
+        <span>{{csvData.dateOfBirth | date}}</span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

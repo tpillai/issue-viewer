@@ -1,0 +1,14 @@
+.header {
+  max-height: 110px;
+  margin-bottom: 40;
+
+  &_logo {
+      max-height:80px;
+      margin:0;
+  }
+
+}
+
+body {
+    font-family: Myriad,Segoe UI,Helvetica Neue,Arial,Sans-serif;
+}
